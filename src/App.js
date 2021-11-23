@@ -9,14 +9,30 @@ class App extends React.Component {
     }
 
     handleDeleteItem=()=> {
-        this.state.items.pop()
-        this.setState(this.state)
-    }
+
+        this.setState(prevState => {
+            const items = [...prevState.items]
+            items.pop();
+
+            return {
+                items,
+            };
+        });
+
+    };
 
     handleAddItem=()=> {
-        this.state.items.push(Math.random()*100)
-        this.setState(this.state)
-    }
+
+        this.setState(prevState => {
+              const items = [...prevState.items]
+              items.push(Math.random()*100);
+
+              return {
+                  items,
+              };
+            });
+
+    };
 
     render() {
     return (
